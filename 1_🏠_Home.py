@@ -1,20 +1,20 @@
 import streamlit as st
-import webbrowser
 import pandas as pd
 import re
 
 if "data" not in st.session_state:
     df_data = pd.read_csv("datasets/CLEAN_FIFA23_official_data.csv", index_col=0)
 
+    df_data = df_data[df_data["Real Face"] == "Yes"]
     df_data = df_data[df_data["Value(£)"] > 0]
     df_data = df_data.sort_values(by="Overall", ascending=False)
     df_data['Name'] = df_data['Name'].apply(lambda x: re.sub(r'^\d+\s+', '', x))
-
+    df_data['Contract Valid Until'] = df_data['Contract Valid Until'].apply(lambda x: f"{int(x):d}".replace(',', ''))
+    df_data['Year_Joined'] = df_data['Year_Joined'].apply(lambda x: f"{int(x):d}".replace(',', ''))
+    
     st.session_state["data"] = df_data
 
 st.markdown("# 🎮 FIFA 23 OFFICIAL DATASET! ⚽️")
-st.sidebar.markdown("Desenvolvido por [Mateus Paiva](https://www.linkedin.com/in/mateusopaiva/) e [Asimov Academy](https://asimov.academy)")
-
 
 btn = st.link_button(
     "Acesse os dados no Kaggle", 
@@ -37,3 +37,8 @@ st.markdown(
     desenvolvimento do jogador ao longo do tempo.
 """
 )
+
+footer_container = st.container()
+with footer_container:
+    st.markdown("---")
+    st.markdown("Desenvolvido por [Mateus Paiva](https://www.linkedin.com/in/mateusopaiva/) e [Asimov Academy](https://asimov.academy)")
