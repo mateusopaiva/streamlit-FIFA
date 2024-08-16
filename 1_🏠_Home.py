@@ -2,7 +2,6 @@ import streamlit as st
 import webbrowser
 import pandas as pd
 import re
-from datetime import datetime 
 
 if "data" not in st.session_state:
     df_data = pd.read_csv("datasets/CLEAN_FIFA23_official_data.csv", index_col=0)
@@ -17,9 +16,10 @@ st.markdown("# 🎮 FIFA 23 OFFICIAL DATASET! ⚽️")
 st.sidebar.markdown("Desenvolvido por [Mateus Paiva](https://www.linkedin.com/in/mateusopaiva/) e [Asimov Academy](https://asimov.academy)")
 
 
-btn = st.button("Acesse os dados no Kaggle")
-if btn:
-    webbrowser.open_new_tab("https://www.kaggle.com/datasets/kevwesophia/fifa23-official-datasetclean-data")
+btn = st.link_button(
+    "Acesse os dados no Kaggle", 
+    "https://www.kaggle.com/datasets/kevwesophia/fifa23-official-datasetclean-data"
+)
 
 st.markdown(
     """
