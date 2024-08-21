@@ -11,6 +11,8 @@ Throughout the Streamlit course at Asimov Academy, I learned how to build intera
 
 I explored the use of widgets, creation of custom layouts, and implementation of multiple pages, as well as caching techniques to optimize application performance, ensuring smooth execution without the need for complex tools.
 
+🔗 [Click here to access the project deploy](https://mateusopaivafifa.streamlit.app/)
+
 ## 💻 Running the application 
 ```bash
 cd streamlit-FIFA
