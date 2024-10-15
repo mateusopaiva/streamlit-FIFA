@@ -1,3 +1,5 @@
+<h6> Não fala inglês? <a href="https://github.com/mateusopaiva/streamlit-FIFA">Clique aqui</a> para ver essa página em português.</h6>
+
 <h1 align="center">Building Web Applications with Streamlit</h1>
 
 <p align="center">
